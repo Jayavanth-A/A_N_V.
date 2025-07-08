@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Razorpay Payment</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    #result {
+      font-size: 3rem;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pay ₹99 with Razorpay</h2>
+  <button onclick="payNow()">Pay Now</button>
+  <div id="result">Awaiting payment...</div>
+
+  <script>
+    function payNow() {
+      fetch('/create_order')
+        .then(res => res.json())
+        .then(order => {
+          var options = {
+            key: "rzp_test_um6QaO0Ca35Em1", // Only the key_id (safe for frontend)
+            amount: order.amount,
+            currency: order.currency,
+            order_id: order.id,
+            name: "Chaduvuko Bro",
+            description: "Test Payment",
+            handler: function (response) {
+  document.getElementById("result").innerText = "yes";
+
+  const downloadLink = document.createElement("a");
+  downloadLink.href = "https://drive.google.com/uc?export=download&id=1NyuIqORFJKHSUS1pXu2hONKAGzkUuGyt";
+  downloadLink.download = "ChaduvukoBroSetup.exe"; // Optional: force download name
+  downloadLink.click();
+}
+,
+            modal: {
+              ondismiss: function () {
+                document.getElementById("result").innerText = "no";
+              }
+            },
+            prefill: {
+              name: "Test User",
+              email: "test@example.com",
+              contact: "9999999999"
+            },
+            theme: {
+              color: "#3399cc"
+            }
+          };
+          var rzp = new Razorpay(options);
+          rzp.open();
+        });
+    }
+  </script>
+</body>
+</html>
