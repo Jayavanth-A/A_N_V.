@@ -25,7 +25,7 @@
       width: 100%;
       z-index: 10;
     }
-    nav .logo img { width: 50px; }
+    nav .site-title { color: white; font-weight: bold; font-size: 1.2rem; }
     nav ul {
       list-style: none;
       display: flex;
@@ -38,17 +38,6 @@
       transition: 0.3s;
     }
     nav ul li a:hover { color: #3399cc; }
-
-    .logo { text-align: center; margin-top: 100px; }
-    .logo img { width: 120px; }
-
-    .video-background {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
 
     .content {
       display: flex;
@@ -86,13 +75,6 @@
       margin: auto;
     }
 
-    .tutorial-section video {
-      width: 90%;
-      max-width: 800px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    }
-
     footer {
       background: #000;
       color: #aaa;
@@ -108,7 +90,7 @@
   <!-- Background Video -->
   <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;">
     <iframe width="100%" height="100%"
-      src="https://www.youtube.com/embed/034SEPKICxY?autoplay=1&mute=1&controls=0&loop=1&playlist=034SEPKICxY&modestbranding=1&showinfo=0"
+      src="https://www.youtube.com/embed/034SEPKICxY?autoplay=1&mute=1&controls=0&loop=1&playlist=034SEPKICxY&modestbranding=1"
       frameborder="0"
       allow="autoplay; encrypted-media"
       allowfullscreen
@@ -118,16 +100,15 @@
 
   <!-- Navbar -->
   <nav>
-  <div class="site-title">Askify(AI Agent)</div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#terms">Terms</a></li>
-    <li><a href="#privacy">Privacy</a></li>
-    <li><a href="#refund">Refund</a></li>
-  </ul>
-</nav>
-
+    <div class="site-title">Askify (AI Agent)</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#terms">Terms</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#refund">Refund</a></li>
+    </ul>
+  </nav>
 
   <!-- Main Content -->
   <div class="content">
@@ -137,26 +118,23 @@
   </div>
 
   <!-- Tutorial Video -->
-  <div class="tutorial-section">
-  <h3>How to Use the AI Agent</h3>
-  <div style="display: flex; justify-content: center;">
-    <iframe width="90%" height="450" style="max-width: 800px; border-radius: 10px; box-shadow: 0 0 20px rgba(255,255,255,0.2);"
-      src="https://www.youtube.com/embed/-qzXXEOetsw?rel=0&modestbranding=1"
-      title="Tutorial Video"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
+  <section>
+    <h3>📘 How to Use the AI Agent</h3>
+    <div style="display: flex; justify-content: center;">
+      <iframe width="90%" height="450" style="max-width: 800px; border-radius: 10px; box-shadow: 0 0 20px rgba(255,255,255,0.2);"
+        src="https://www.youtube.com/embed/-qzXXEOetsw?rel=0&modestbranding=1"
+        title="Tutorial Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
 
-
-
-  <!-- Required Razorpay Sections -->
-
+  <!-- Policy Sections -->
   <section id="about">
     <h3>About Us</h3>
-    <p>We are a team of AI developers dedicated to making intelligent agents accessible and useful for everyone. This AI Agent helps automate desktop tasks, analyze documents, and boost productivity using cutting-edge technologies.</p>
+    <p>We are a passionate AI startup committed to building intelligent assistants that enhance productivity. Our tool is designed for anyone who wants to get answers, automate tasks, and save time.</p>
   </section>
 
   <section id="contact">
@@ -167,21 +145,21 @@
 
   <section id="terms">
     <h3>Terms & Conditions</h3>
-    <p>By using our product, you agree not to redistribute it or misuse the services. The software is intended for individual use only. Unauthorized reproduction or resale is strictly prohibited.</p>
+    <p>By using our software, you agree not to redistribute or resell it. The product is licensed for personal use only. You must not reverse-engineer, duplicate, or tamper with its code or functionality.</p>
   </section>
 
   <section id="privacy">
     <h3>Privacy Policy</h3>
-    <p>We do not collect any personal information apart from your name, email, and phone number (only for payment purposes). Your data is never shared with third parties.</p>
+    <p>We respect your privacy. We only collect essential information like your name, email, and contact number for payment and download purposes. We do not store or share your data with any third party.</p>
   </section>
 
   <section id="refund">
     <h3>Refund Policy</h3>
-    <p>All purchases are final. However, if the download link does not work or you face any issue, please contact us within 7 days for a resolution.</p>
+    <p>All purchases are final and non-refundable. However, if the download fails or the product is inaccessible, you may contact us within 7 days for a one-time reissue.</p>
   </section>
 
   <footer>
-    © 2025 Chaduvuko Bro. All rights reserved.
+    © 2025 Askify. All rights reserved.
   </footer>
 
   <!-- Razorpay Script -->
@@ -198,7 +176,7 @@
             name: "Chaduvuko Bro",
             description: "AI Agent License",
             handler: function (response) {
-              document.getElementById("result").innerText = "yes";
+              document.getElementById("result").innerText = "Payment Successful !";
               const downloadLink = document.createElement("a");
               downloadLink.href = "https://drive.google.com/file/d/1uBO5gIQl-dK6Ikj5PzTLVWgPfZXt63MZ/view?usp=sharing";
               downloadLink.download = "Askify.zip";
@@ -206,7 +184,7 @@
             },
             modal: {
               ondismiss: function () {
-                document.getElementById("result").innerText = "no";
+                document.getElementById("result").innerText = "Payment Not Done";
               }
             },
             prefill: {
